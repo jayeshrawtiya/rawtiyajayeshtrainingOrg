@@ -1,0 +1,1 @@
+Public enum Weekdays {MON, TUE, WED, THUR, FRI, SAT, SUN}

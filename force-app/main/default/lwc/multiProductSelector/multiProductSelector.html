@@ -1,0 +1,33 @@
+<template>
+    
+    <lightning-card title="Add Products to Order">
+        <div class="slds-m-left_x-small slds-m-right_x-small">
+        <lightning-input type="search"
+                         label="Search Products"
+                         value={searchKey}
+                         onchange={handleSearch}>
+        </lightning-input>
+        </div>
+
+        <div class="slds-m-left_x-small">
+        <template if:true={hasProducts}>
+            <lightning-dual-listbox name="products"
+                                    label="Select Products"
+                                    source-label="Available"
+                                    selected-label="Selected"
+                                    field-level-help="Select products to link to the order."
+                                    options={productOptions}
+                                    value={selectedProductIds}
+                                    onchange={handleSelectionChange}>
+            </lightning-dual-listbox>
+        </template>
+        </div>
+
+        <div class="slds-p-top_medium slds-m-left_x-small">
+            <lightning-button variant="brand"
+                              label="Add to Order"
+                              onclick={handleSubmit}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

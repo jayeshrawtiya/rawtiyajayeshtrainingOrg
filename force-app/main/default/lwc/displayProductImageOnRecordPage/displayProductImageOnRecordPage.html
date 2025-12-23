@@ -1,0 +1,8 @@
+<template>
+    <template if:true={imageUrl}>
+        <img src={imageUrl} alt="Product Image" style="max-width: 200px; max-height: 200px;" />
+    </template>
+    <template if:false={imageUrl}>
+        <p>No image available</p>
+    </template>
+</template>

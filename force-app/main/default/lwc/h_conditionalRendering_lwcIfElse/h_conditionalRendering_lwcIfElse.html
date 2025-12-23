@@ -1,0 +1,20 @@
+<!--
+<template>
+    <template lwc:if = {propert1}> statement1 </template>
+    <template lwc:elseif= {property2}> statement2 </template>
+    <template lwc:else>statement3</template>
+</template>
+-->
+
+<template>
+    <lightning-card title="Conditional Rendering" icon-name="standard:account">
+        <!--<div class="slds-p-around_medium">-->
+        <div class="slds-p-around_medium">
+            <p lwc:if={property1}> statement1</p>
+            <p lwc:elseif={property2}>statement2</p>
+            <p lwc:else >statement 3</p>
+        </div>
+        <lightning-button variant="brand" label={buttonLabel} onclick={handleClick}></lightning-button>
+    
+    </lightning-card>
+</template>

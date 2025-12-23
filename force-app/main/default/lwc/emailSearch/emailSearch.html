@@ -1,0 +1,82 @@
+<template>
+    <lightning-card>
+
+        <!--Search Icon-->
+        <h3 slot="title" class="slds-media slds-media_center">
+            <lightning-icon icon-name='standard:search' alternative-text='search' size='medium' title='search'></lightning-icon>            
+            <span class="slds-m-left_x-small">Search by Email</span>
+        </h3>
+
+        <!--Taking input for email and clicking on submit button-->
+        <div class="slds-p-top_medium slds-m-left_x-small">
+            <lightning-input label="Search" type="email" value={email} onchange={handleChange} placeholder="user@example.com"></lightning-input>
+        </div>
+        <div class="slds-p-small slds-m-left_x-small slds-p-top_small">
+             <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+        </div>
+
+        
+        <!--Displaying "No records found if no contact is there"-->
+        <template if:true={isNoContact}>
+            <div class="slds-p-left_small slds-p-bottom_medium slds-p-top_medium">
+                <a><b>No records found with entered email.</b></a>
+            </div>
+        </template>
+
+
+        <!--Displaying Contact (assuming only One)-->
+        <div class="slds-p-top_medium">
+            <template if:true={hasContacts}>
+                <div class="slds-p-left_small">
+                    <h3><strong>Contact</strong></h3>
+                    <template for:each={contactRecords} for:item="contact">
+                        <div key={contact.Id} class="record-display">
+                            <a class="slds-text-link"
+                            onclick={handlecontactclick}
+                            data-id={contact.Id}>
+                            <b>{contact.Name} ({contact.Email})</b></a>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+
+
+        <!--Displaying all order with that contact which have this email-->
+        <div>
+            <template if:true={hasOrders}>
+                <div class="slds-p-left_small">
+                <h3><strong>Orders</strong></h3>
+                <template for:each={orderRecords} for:item="order">
+                    <div key={order.Id} class="record-display">
+                        <a class="slds-text-link"
+                        onclick={handleorderclick}
+                        data-id={order.Id}>
+                        <b>{order.Name}</b></a>
+                    </div>
+                </template>
+                </div>
+            </template>
+        </div>
+        
+
+
+        <!--Displaying all Cases with that contact which have this email-->
+        <div>
+            <template if:true={hasCases}>
+                <div class="slds-p-left_small">
+                <h3><strong>Cases</strong></h3>
+                <template for:each={caseRecords} for:item="cases">
+                    <div key={cases.Id} class="record-display">
+                        <a class="slds-text-link"
+                        onclick={handlecaseclick}
+                        data-id={cases.Id}><b>{cases.CaseNumber} ({cases.Status})</b></a>
+                    </div>
+                </template>
+                </div>
+            </template>
+        </div>
+
+
+    </lightning-card>
+</template>

@@ -1,0 +1,141 @@
+/* style.css */
+
+:host()
+{
+    /*
+    Creating variables which are going to be used frequently in the component
+    How to use variables mentioned in next line.
+    background:var(--dark-b;ue);
+    */
+    --dark-blue:#0b0d21;
+    --light-white:#fafafa;
+    --light-blue:#4f7df9;
+    --light-pink:#e91e63;
+    --dull-blue: #1d1e33;
+    --size-16:16px;
+    --size-14:14px;
+    --size-12:12px;
+}
+
+.app {
+    min-height: 100vh;
+    background-image:url(sfsites/c/resource/BmiAppBackground);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.box {
+    background:var(--dark-blue);
+    padding:var(--size-16);
+    margin: auto;
+    text-align: center;
+    border-radius: 38px;
+    max-width: 420px;
+    color:var(--light-white);
+}
+
+h1 {
+    font-size:36px;
+    padding:20px 0;
+    font-weight:bold;
+}
+
+.Info-wrapper {
+    background: var(--dull-blue);
+    padding: var(--size-16);
+    border-bottom-left-radius: 38px;
+    border-bottom-right-radius: 38px;
+    font-size: var(--size-14);
+    text-align: center;
+}
+
+h2 {
+   font-size: 26px;
+   color: var(--light-pink);
+}
+
+.Info-wrapper h3 {
+   font-size: 22px;
+}
+
+label{
+    font-size: 20px;
+    color: var(--light-white);
+}
+
+input{
+    color: var(--dull-blue);
+    font-size: var(--size-16);
+    padding: 8px;
+}
+
+.custom-button{
+    font-size: var(--size-16);
+    padding: var(--size-12);
+    background: var(--light-pink);
+    border-color: var(--light-pink);
+    color: var(--light-white);
+}
+
+.result-value{
+    color: var(--light-blue);
+    font-size: 30px;
+}
+
+/*
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+
+
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+input[type="number"],
+button {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+.Info-wrapper h2 {
+    color: #444;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+.Info-wrapper h3 {
+    color: #007BFF;
+    margin-top: 1rem;
+}
+
+.Info-wrapper p {
+    margin: 0.2rem 0 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+*/

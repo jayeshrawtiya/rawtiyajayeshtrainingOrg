@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Create Account from Lead" icon-name="standard:account">
+        <div class="slds-p-around_medium">
+
+            <template if:true={errorMessage}>
+                <div class="slds-text-color_error slds-m-bottom_small">
+                    {errorMessage}
+                            <template if:true={duplicateAccountId}>
+                            <a href={duplicateAccountUrl} target="_blank" class="slds-text-link_reset slds-m-left_x-small">
+                                {duplicateAccountId}
+                            </a>
+        </template>
+                </div>
+            </template>
+
+            <lightning-input label="Account Name" value={accountName} onchange={handleChange} data-id="accountName"></lightning-input>
+            <lightning-input label="Industry" value={industry} onchange={handleChange} data-id="industry"></lightning-input>
+            <lightning-input label="Phone" value={phone} onchange={handleChange} data-id="phone"></lightning-input>
+            <lightning-input label="Website" value={website} onchange={handleChange} data-id="website"></lightning-input>
+
+            <lightning-button label="Submit" variant="brand" onclick={handleSubmit} class="slds-m-top_medium"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

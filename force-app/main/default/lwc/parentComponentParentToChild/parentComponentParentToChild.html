@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Parent Component">
+
+        <lightning-input class="slds-p-horizontal_small"
+                         label="set starting counter"
+                         type="number"
+                         min="0"
+                         max="1000000"
+                         value={startCounter}
+                         onchange={handleStartChange}>
+        </lightning-input>
+
+        <lightning-button label="Add 100 to counter" 
+                          onclick={handleClick}>
+        </lightning-button>
+    
+    </lightning-card>
+
+    <!-- Calling Child Component -->
+    <!-- Counter is the property we created in child component we are passing startcounter value to it-->
+    <c-child-component-parent-to-child counter={startCounter}></c-child-component-parent-to-child>
+    
+</template>

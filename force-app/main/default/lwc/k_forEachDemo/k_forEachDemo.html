@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="For Each Demo" class="slds-p-around_medium">
+
+        <template if:true={contact.data}>
+            <template for:each={contact.data} for:item="contact">
+                <h3 key={contact.Id}>{contact.Name}</h3>
+            </template>
+        </template>
+
+        <template if:true={contact.error}>
+            {contact.error}
+        </template>
+
+
+    </lightning-card>
+</template>

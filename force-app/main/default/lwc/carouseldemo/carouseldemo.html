@@ -1,0 +1,18 @@
+<template>
+    <lightning-carousel>
+        <!--checking if player if not empty then execute-->
+        <template if:true={Player}>
+            <template for:each={Player} for:item="Footballer">
+                <lightning-carousel-image
+                    key={Footballer.Id}
+                    src={Footballer.src}
+                    header={Footballer.name}
+                    decription={Footballer.description}
+                    href={Footballer.href}
+                    alternative-text = "Image Loading"
+                    >
+                </lightning-carousel-image>
+            </template>
+        </template>
+    </lightning-carousel>
+</template>

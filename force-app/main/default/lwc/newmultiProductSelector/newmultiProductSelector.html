@@ -1,0 +1,56 @@
+<template>
+    <lightning-card title="Add Products to Order">
+        <div class="slds-m-around_medium">
+            <lightning-input type="search"
+                             label="Search Products"
+                             value={searchKey}
+                             onchange={handleSearch}>
+            </lightning-input>
+        </div>
+
+        <template if:true={hasProducts}>
+            <div class="slds-grid slds-gutters slds-m-around_medium">
+                <!-- Available Products -->
+                <div class="slds-col slds-size_1-of-2">
+                    <h3 class="slds-text-heading_small">Available Products</h3>
+                    <template for:each={availableProducts} for:item="product">
+                        <div key={product.Id} class="slds-box slds-m-around_x-small ">
+                            <img src={product.fullImageUrl} alt="product image" width="40" height="40" class="slds-m-right_small" />
+                            <span class="slds-truncate">{product.Name}</span>
+                            <lightning-button-icon icon-name="utility:add"
+                                                   alternative-text="Add"
+                                                   class="slds-m-left_auto"
+                                                   data-id={product.Id}
+                                                   onclick={handleAdd}>
+                            </lightning-button-icon>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Selected Products -->
+                <div class="slds-col slds-size_1-of-2">
+                    <h3 class="slds-text-heading_small">Selected Products</h3>
+                    <template for:each={selectedProducts} for:item="product">
+                        <div key={product.Id} class="slds-box slds-m-around_x-small slds-grid slds-align_absolute-center">
+                            <img src={product.fullImageUrl} alt="product image" width="40" height="40" class="slds-m-right_small" />
+                            <span class="slds-truncate">{product.Name}</span>
+                            <lightning-button-icon icon-name="utility:close"
+                                                   alternative-text="Remove"
+                                                   class="slds-m-left_auto"
+                                                   data-id={product.Id}
+                                                   onclick={handleRemove}>
+                            </lightning-button-icon>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+
+        <div class="slds-m-around_medium">
+            <lightning-button variant="brand"
+                              label="Add to Order"
+                              onclick={handleSubmit}>
+            </lightning-button>
+        </div>
+    </lightning-card>
+</template>

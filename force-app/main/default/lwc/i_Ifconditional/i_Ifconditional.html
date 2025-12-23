@@ -1,0 +1,19 @@
+<template>
+
+    <lightning-card title="Button card section">
+
+        <lightning-button variant="success" 
+                          label={onclicklabel}
+                          onclick={handleClick}>
+        </lightning-button>
+    </lightning-card>
+
+
+
+    <template if:true = {cardVisible}>
+        <lightning-card title="If else Demo">
+            {MyTitle};
+        </lightning-card>
+    </template>
+
+</template>

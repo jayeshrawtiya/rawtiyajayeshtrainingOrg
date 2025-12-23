@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Products">
+        <template if:true={products}>
+            <template for:each={products} for:item="prod">
+                <div key = {prod.Id} class="record-card ">
+                    <a class="slds-text-link" 
+                       onclick={handleNavigation}
+                       data-id={prod.Id}>
+                       <b>{prod.Name}</b> - {prod.Category__c}
+                </a>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

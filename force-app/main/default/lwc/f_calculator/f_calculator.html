@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Calculator">
+
+        <!--name="number1"    this is the name of the field api name-->
+        <!--label  is the text which will be displayed on component for input box-->
+        <lightning-input name="number1" label="First Number" onchange={handleNumber}></lightning-input>
+        <lightning-input name="number2" label="Second Number" onchange={handleNumber}></lightning-input>
+
+
+        <lightning-button name="add" label="Addition" variant="brand" onclick={handleClick}></lightning-button>
+        <lightning-button name="Sub" label="Substraction" variant="brand" onclick={handleClick}></lightning-button>
+        <lightning-button name="mult" label="Multiplication" variant="brand" onclick={handleClick}></lightning-button>
+        <lightning-button name="div" label="Divivsion" variant="brand" onclick={handleClick}></lightning-button>
+
+    </lightning-card>
+    
+</template>
