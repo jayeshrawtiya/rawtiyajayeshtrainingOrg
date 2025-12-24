@@ -1,7 +1,7 @@
 public with sharing class NewsApiService {
-
+    public String myApiKey = System.label.NEWS_API_KEY;
     private static final String NAMED_CREDENTIAL = 'callout:NewsAPI';
-    private static final String API_KEY = 'MY_API_KEY';
+    private static final String API_KEY = myApiKey;
 
     public static String getNews(String keyword, Date fromDate) {
 
@@ -30,5 +30,9 @@ public with sharing class NewsApiService {
         } else {
             throw new CalloutException(res.getBody());
         }
-    }
+
+        NewsApiWrapper newsApiWrapper = NewsApiWrapper();
+        newsApiWrapper = (JSON.deserialize(res.getBody(), NewsApiWrapper.class));
+        return newsApiWrapper;
+      }
 }
