@@ -1,4 +1,4 @@
-public with sharing class NewsApiWrapper {
+public with sharing class newsApiWrapper {
     @AuraEnabled
     public string status;
     @AuraEnabled
@@ -6,7 +6,7 @@ public with sharing class NewsApiWrapper {
     @AuraEnabled
     public List<articles> articles;
 
-    @AuraEnabled
+
     public class articles{
         @auraEnabled
         public source source;
@@ -26,7 +26,6 @@ public with sharing class NewsApiWrapper {
         public string content;
     }
 
-    @AuraEnabled
     public class source{
         @AuraEnabled
         public string id;
