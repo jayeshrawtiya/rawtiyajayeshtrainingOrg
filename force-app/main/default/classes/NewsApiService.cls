@@ -13,7 +13,7 @@ public with sharing class NewsApiService {
     private static final String NAMED_CREDENTIAL = 'callout:NewsAPI';
     private static final String UTF8 = 'UTF-8';
     private static final Integer TIMEOUT_MS = 120000;
-    private static final String DEFAULT_SORT = 'popularity';
+    private static final String DEFAULT_SORT = 'POPULARITY';
 
     // Secure configurable key via custom label (if Named Credential doesn't inject it)
     private static final String API_KEY = System.Label.NEWS_API_KEY;
@@ -46,7 +46,7 @@ public with sharing class NewsApiService {
         System.debug('Keyword: ' + keyword);
         System.debug('From Date: ' + formattedDate);
         System.debug('Sort By: ' + DEFAULT_SORT);
-        System.debug('Endpoint: ' + endpoint);
+
         String endpoint = NAMED_CREDENTIAL +
             '?q=' + EncodingUtil.urlEncode(keyword, UTF8) +
             '&from=' + EncodingUtil.urlEncode(formattedDate, UTF8) +
@@ -55,7 +55,7 @@ public with sharing class NewsApiService {
         if (!String.isBlank(API_KEY)) {
             endpoint += '&apiKey=' + EncodingUtil.urlEncode(API_KEY, UTF8);
         }
-
+        System.debug('Endpoint: ' + endpoint);
         HttpRequest req = new HttpRequest();
         req.setEndpoint(endpoint);
         req.setMethod('GET');
