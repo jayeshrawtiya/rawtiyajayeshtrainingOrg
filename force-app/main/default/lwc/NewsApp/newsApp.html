@@ -1,24 +1,65 @@
 <template>
     <lightning-card title="News App" icon-name="standard:news">
-        <div>
-            <div class="slds-grid slds-wrap slds-gutters slds-p-around_small">
-                <div class="slds-col slds-size_1-of-2">
-                    <lightning-input type="text" label="Search" value={searchTerm} onchange={handleSearchTermChange}></lightning-input>
+
+        <div class="slds-grid slds-gutters slds-p-around_small">
+
+            <!-- LEFT COLUMN (70%) -->
+            <div class="slds-col slds-size_7-of-12">
+
+                <div class="slds-grid slds-wrap slds-gutters">
+
+                    <!-- Search -->
+                    <div class="slds-col slds-size_1-of-1">
+                        <lightning-input
+                            type="text"
+                            label="Search"
+                            value={searchTerm}
+                            onchange={handleSearchTermChange}>
+                        </lightning-input>
+                    </div>
+
+                    <!-- Sort By -->
+                    <div class="slds-col slds-size_1-of-1 slds-m-top_small">
+                        <lightning-combobox
+                            label="Sort By"
+                            value={selectedSortBy}
+                            options={sortByOptions}
+                            onchange={handleSortByChange}>
+                        </lightning-combobox>
+                    </div>
+
                 </div>
-                <div class="slds-col slds-size_1-of-2">
-                    <lightning-input class="datepicker" type="date" label="From Date" value={fromDate} onchange={handleFromDateChange}></lightning-input>
-                </div>    
             </div>
-        </div>
-        <div>
-            <div class="slds-grid slds-wrap slds-gutters slds-p-around_small">
-                <div class="slds-col slds-size_1-of-2">
-                    <lightning-input type="picklist" label="Sort By" value={sortBy} options={sortByOptions} onchange={handleSortByChange}></lightning-input>
-                </div>
-                <div class="slds-col slds-size_1-of-2">
-                    <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+
+            <!-- RIGHT COLUMN (30%) -->
+            <div class="slds-col slds-size_5-of-12">
+
+                <div class="slds-grid slds-wrap slds-gutters">
+
+                    <!-- From Date -->
+                    <div class="slds-col slds-size_1-of-1">
+                        <lightning-input
+                            type="date"
+                            label="From Date"
+                            value={fromDate}
+                            onchange={handleFromDateChange}>
+                        </lightning-input>
+                    </div>
+
+                    <!-- Search Button -->
+                    <div class="slds-col slds-grow slds-grid slds-grid_vertical-align-end">
+                    <div class="slds-col slds-size_1-of-1 slds-m-top_medium ">
+                        <lightning-button
+                            variant="brand"
+                            label="Search"
+                            onclick={handleSearch}
+                            class="slds-m-top_small slds-button_stretch">
+                        </lightning-button>
+                    </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </lightning-card>
 </template>
