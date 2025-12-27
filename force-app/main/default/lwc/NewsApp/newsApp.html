@@ -1,4 +1,24 @@
 <template>
     <lightning-card title="News App" icon-name="standard:news">
+        <div>
+            <div class="slds-grid slds-wrap slds-gutters slds-p-around_small">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input type="text" label="Search" value={searchTerm} onchange={handleSearchTermChange}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input class="datepicker" type="date" label="From Date" value={fromDate} onchange={handleFromDateChange}></lightning-input>
+                </div>    
+            </div>
+        </div>
+        <div>
+            <div class="slds-grid slds-wrap slds-gutters slds-p-around_small">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-input type="picklist" label="Sort By" value={sortBy} options={sortByOptions} onchange={handleSortByChange}></lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+                </div>
+            </div>
+        </div>
     </lightning-card>
 </template>
