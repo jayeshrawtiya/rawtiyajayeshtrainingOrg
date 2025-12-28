@@ -2,22 +2,18 @@
     <lightning-card title="News App" icon-name="standard:news">
 
         <div class="slds-grid slds-gutters slds-p-around_small">
-
             <!-- LEFT COLUMN (70%) -->
             <div class="slds-col slds-size_7-of-12">
-
                 <div class="slds-grid slds-wrap slds-gutters">
-
-                    <!-- Search -->
+                    <!-- Keyword -->
                     <div class="slds-col slds-size_1-of-1">
                         <lightning-input
                             type="text"
-                            label="Search"
+                            label="Keyword"
                             value={searchTerm}
                             onchange={handleSearchTermChange}>
                         </lightning-input>
                     </div>
-
                     <!-- Sort By -->
                     <div class="slds-col slds-size_1-of-1 slds-m-top_small">
                         <lightning-combobox
@@ -27,15 +23,12 @@
                             onchange={handleSortByChange}>
                         </lightning-combobox>
                     </div>
-
                 </div>
             </div>
 
             <!-- RIGHT COLUMN (30%) -->
             <div class="slds-col slds-size_5-of-12">
-
                 <div class="slds-grid slds-wrap slds-gutters">
-
                     <!-- From Date -->
                     <div class="slds-col slds-size_1-of-1">
                         <lightning-input
@@ -45,21 +38,46 @@
                             onchange={handleFromDateChange}>
                         </lightning-input>
                     </div>
-
                     <!-- Search Button -->
-                    <div class="slds-col slds-grow slds-grid slds-grid_vertical-align-end">
-                    <div class="slds-col slds-size_1-of-1 slds-m-top_medium ">
-                        <lightning-button
-                            variant="brand"
-                            label="Search"
-                            onclick={handleSearch}
-                            class="slds-m-top_small slds-button_stretch">
-                        </lightning-button>
-                    </div>
+                    <div class="slds-col slds-grow slds-grid slds-grid_vertical-align-end ">
+                        <div class="slds-col slds-size_1-of-1 slds-m-top_medium slds-grid_vertical-align-end">
+                            <lightning-button
+                                variant="brand"
+                                label="Get News"
+                                onclick={handleSearch}
+                                class="slds-m-top_small slds-button_stretch slds-grid_vertical-align-end">
+                            </lightning-button>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
+        <!-- News List -->
+        <template for:each={newsData} for:item="news">
+            <div key={news.id} class="news-card">
+                
+                <!-- Image Section -->
+                <div class="news-image">
+                    <img src={news.imageUrl} alt="News Image" />
+                </div>
+
+                <!-- Content Section -->
+                <div class="news-content">
+                    <h3 class="news-title">{news.title}</h3>
+
+                    <p class="news-description">
+                        {news.description}
+                    </p>
+
+                    <div class="news-meta">
+                        <span>Published: {news.publishedAt}</span>
+                        <span>Source: {news.source}</span>
+                    </div>
+                </div>
+
+            </div>
+        </template>
+        
     </lightning-card>
 </template>
