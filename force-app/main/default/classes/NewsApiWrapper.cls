@@ -32,4 +32,4 @@ public with sharing class newsApiWrapper {
         @AuraEnabled
         public string name;
     }
-}
+} 
