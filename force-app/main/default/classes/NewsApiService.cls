@@ -19,7 +19,7 @@ public with sharing class NewsApiService {
     private static final String API_KEY = System.Label.NEWS_API_KEY;
 
     // Enum for sortBy to avoid magic strings
-    // public enum SORT_BY { RELEVANCY, POPULARITY, PUBLISHEDAT } 
+    // public enum SORT_BY { RELEVANCY, POPULARITY, PUBLISHEDAT }
 
     public static newsApiWrapper getNews(String keyword, Date fromDate, String sortBy) {
         // Validate inputs
